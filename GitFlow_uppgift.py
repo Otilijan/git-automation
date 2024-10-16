@@ -39,9 +39,10 @@ def release_to_main():
 def merge_down():
     switch_to_release = subprocess.run(['git', 'switch', f'release/{set_new_version}'], capture_output=True, text=True)
     merge_main_to_release = subprocess.run(['git', 'merge', 'main' ], capture_output=True, text=True)
-    merge_main_to_develop = subprocess.run(['git','merge, 'main' ] ,capture_output=True, text=True)
+    merge_main_to_develop = subprocess.run(['git','merge', 'main' ] ,capture_output=True, text=True)
     print(switch_to_release)
 
 set_release_version()
 create_release_branch()
 release_to_main()
+merge_down()
